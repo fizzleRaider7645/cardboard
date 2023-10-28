@@ -1,15 +1,12 @@
 import requestToken from "./token.js";
-import dotenv from "dotenv";
-
-dotenv.config({ path: "../../../.env", debug: true });
 
 async function main() {
   try {
-    const tokenData = await requestToken();
-    console.log("Token received:", tokenData);
+    const { access_token } = await requestToken();
+    return access_token;
   } catch (error) {
     console.error(error.message);
   }
 }
 
-main();
+export default main;
